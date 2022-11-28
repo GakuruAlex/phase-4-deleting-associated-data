@@ -6,6 +6,13 @@ class DogHousesController < ApplicationController
     render json: dog_house, include: :reviews
   end
 
+
+  def destroy
+    dog_house = DogHouse.find_by(id: params[:id])
+
+    dog_house.destroy
+  end
+
   private
 
   def render_not_found_response
